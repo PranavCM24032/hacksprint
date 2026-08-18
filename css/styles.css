@@ -88,6 +88,7 @@
     /* ============================================================ */
     body.loading {
       overflow: hidden !important;
+      background: #05070a;
     }
 
     .rocket-preloader {
