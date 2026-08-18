@@ -656,7 +656,7 @@
     /* ============================================================ */
     .hacksprint-logo {
       text-align: center;
-      margin: 1rem 0 1.5rem;
+      margin: 2rem 0 2.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1682,6 +1682,37 @@
       transform: rotate(-3deg);
     }
 
+    /* Laptop doodles */
+    .doodle-laptop-star-tl {
+      top: -20px;
+      left: -30px;
+      transform: rotate(15deg);
+    }
+
+    .doodle-laptop-zigzag-tr {
+      top: 10px;
+      right: -40px;
+      transform: rotate(-8deg);
+    }
+
+    .doodle-laptop-cross-bl {
+      bottom: 15px;
+      left: -25px;
+      transform: rotate(12deg);
+    }
+
+    .doodle-laptop-circle-br {
+      bottom: -10px;
+      right: -35px;
+      transform: rotate(-5deg);
+    }
+
+    .doodle-laptop-arrow-r {
+      top: 50%;
+      right: -55px;
+      transform: translateY(-50%) rotate(5deg);
+    }
+
     /* ============================================================ */
     /*  REGISTER SECTION ICONS                                       */
     /* ============================================================ */
@@ -1902,7 +1933,7 @@
       }
 
       .hacksprint-logo {
-        margin: 0.5rem 0 0.8rem;
+        margin: 1rem 0 1.5rem;
       }
 
       .timer-register-row {
