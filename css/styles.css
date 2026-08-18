@@ -1488,6 +1488,24 @@
       font-size: clamp(2.8rem, 10vw, 5rem);
       line-height: 1.1;
       filter: url(#roughen);
+      color: #6336B8;
+      text-shadow:
+        3px 3px 0 #111,
+        -1px -1px 0 #F5B91E,
+        0 0 20px rgba(99, 54, 184, 0.3);
+      transform: rotate(-2deg);
+      display: inline-block;
+      background: linear-gradient(135deg, #6336B8 0%, #F5B91E 50%, #6336B8 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: ctaShimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes ctaShimmer {
+      0%, 100% { background-position: 0% center; }
+      50% { background-position: 200% center; }
     }
 
     .register-section .sub-text {
@@ -1872,14 +1890,14 @@
       }
 
       .creative-info-block {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
         margin: 1.5rem 0;
       }
 
       .creative-info-card {
         min-height: auto;
-        padding: 1.2rem 1rem;
+        padding: 0.9rem 0.6rem 0.7rem;
         transform: rotate(0deg) !important;
       }
 
@@ -1888,19 +1906,23 @@
       }
 
       .creative-info-card .big-number {
-        font-size: 2.4rem;
+        font-size: 1.8rem;
       }
 
       .creative-info-card .big-icon {
-        font-size: 2.2rem;
+        font-size: 1.6rem;
       }
 
       .creative-info-card .title {
-        font-size: 0.85rem;
+        font-size: 0.7rem;
       }
 
       .creative-info-card .desc {
-        font-size: 0.85rem;
+        font-size: 0.7rem;
+      }
+
+      .creative-info-card .sub {
+        font-size: 0.6rem;
       }
 
       .prize-pool-block {
