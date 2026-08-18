@@ -506,6 +506,19 @@
     }
 
     /* ============================================================ */
+    /*  HERO SCREEN — first viewport (header + laptop + timer)      */
+    /* ============================================================ */
+    .hero-screen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    /* ============================================================ */
     /*  HEADER - torn black collage                                  */
     /* ============================================================ */
     .hero-header {
@@ -514,13 +527,13 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem 2rem;
-      padding: 1rem 1.8rem;
+      padding: 0.8rem 1.5rem;
       background: #111;
       color: #111;
       border: none;
       position: relative;
       transform: rotate(-0.5deg);
-      margin-bottom: 2.5rem;
+      margin-bottom: 1rem;
       box-shadow: 0 0 0 3px #F3EFE6, 8px 8px 0 #6336B8;
     }
 
@@ -643,7 +656,7 @@
     /* ============================================================ */
     .hacksprint-logo {
       text-align: center;
-      margin: 2rem 0 3.5rem;
+      margin: 1rem 0 1.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -658,7 +671,7 @@
     .laptop-hero-stage {
       position: relative;
       display: inline-block;
-      margin: 1.5rem 0;
+      margin: 0.8rem 0;
       animation: laptopFloat 6s ease-in-out infinite;
       transition: transform 0.3s ease, filter 0.3s ease;
     }
@@ -671,7 +684,7 @@
     .laptop-img {
       max-width: 100%;
       height: auto;
-      width: clamp(340px, 85vw, 920px);
+      width: clamp(280px, 65vw, 750px);
       filter: drop-shadow(12px 14px 0 #111) drop-shadow(0 15px 30px rgba(99, 54, 184, 0.3));
       position: relative;
       z-index: 2;
@@ -1061,12 +1074,12 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 2rem 3rem;
+      gap: 1.5rem 2rem;
       background: #F3EFE6;
       border: 3px solid #111;
-      padding: 1.8rem 2rem;
+      padding: 1.2rem 1.5rem;
       box-shadow: 6px 6px 0 #6336B8;
-      margin: 2.5rem 0;
+      margin: 0.5rem 0;
       position: relative;
       transform: rotate(0.5deg);
     }
@@ -1748,11 +1761,16 @@
         padding: 1rem;
       }
 
+      .hero-screen {
+        min-height: auto;
+        padding-bottom: 0.5rem;
+      }
+
       .hero-header {
         flex-direction: column;
         align-items: stretch;
         text-align: center;
-        padding: 1rem 1.2rem;
+        padding: 0.6rem 1rem;
       }
 
       .hero-header .brand {
@@ -1781,6 +1799,10 @@
 
       .timer-register-row .timer {
         justify-content: center;
+      }
+
+      .laptop-img {
+        width: clamp(250px, 80vw, 500px);
       }
 
       .creative-info-block {
@@ -1822,6 +1844,25 @@
     }
 
     @media (max-width: 480px) {
+      .laptop-img {
+        width: 85vw;
+      }
+
+      .sticker-main-hacksprint {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.8rem;
+        top: -16px;
+      }
+
+      .sticker-tagline-tape {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.7rem;
+      }
+
+      .laptop-tech-accent {
+        display: none;
+      }
+
       .perks-grid {
         grid-template-columns: 1fr;
         gap: 1.2rem;
@@ -1846,27 +1887,28 @@
       }
 
       .hero-header {
-        margin-bottom: 1.5rem;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 0.8rem;
       }
 
       .hero-header .brand .brand-logo {
-        width: 56px;
-        height: 56px;
+        width: 48px;
+        height: 48px;
       }
 
       .hero-header .brand .brand-logo-brand {
-        height: 56px;
-        max-width: 200px;
+        height: 48px;
+        max-width: 160px;
       }
 
       .hacksprint-logo {
-        margin: 1rem 0 1.5rem;
+        margin: 0.5rem 0 0.8rem;
       }
 
       .timer-register-row {
-        padding: 1rem 0.8rem;
-        margin: 1.5rem 0;
-        gap: 1rem;
+        padding: 0.8rem 0.6rem;
+        margin: 0.5rem 0;
+        gap: 0.8rem;
       }
 
       .timer-register-row .timer {
