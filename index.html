@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <title>HACKSPRINT · Auron Technical Forum</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Chivo:ital,wght@0,400;0,700;1,400&family=Patrick+Hand&family=Space+Grotesk:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- SVG filter for distressed/grunge text -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <filter id="roughen">
+        <feTurbulence type="turbulence" baseFrequency="0.04" numOctaves="4" result="noise" seed="2" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="distress">
+        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise" seed="5" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="grain">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noise" />
+        <feColorMatrix type="saturate" values="0" in="noise" result="mono" />
+        <feBlend in="SourceGraphic" in2="mono" mode="multiply" result="blend" />
+        <feComponentTransfer in="blend">
+          <feFuncA type="linear" slope="0.4" />
+        </feComponentTransfer>
+      </filter>
+    </defs>
+  </svg>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="loading">
+  <!-- ============================================================ -->
+  <!-- ROCKET LAUNCH PRELOADER OVERLAY                              -->
+  <!-- ============================================================ -->
+  <div id="preloader" class="rocket-preloader">
+    <div class="stars-bg"></div>
+
+    <!-- Rocket with Electric Blue Flame Trail -->
+    <div class="rocket-wrapper" id="rocketWrapper">
+      <img src="assets/images/rocket-launch.png" alt="Rocket Launch" class="preloader-rocket">
+      <div class="blue-flame">
+        <div class="flame-core"></div>
+        <div class="flame-glow"></div>
+      </div>
+    </div>
+
+    <!-- Logo Reveal Container -->
+    <div class="logo-reveal-container" id="logoReveal">
+      <img src="assets/images/hacksprint.png" alt="HACKSPRINT 2026" class="reveal-logo-img">
+      <div class="reveal-tagline">THINK FAST. BUILD WELL.</div>
+    </div>
+
+  </div>
+
+  <div class="container">
+
+    <!-- ============================================================ -->
+    <!-- HEADER — torn black strip                                     -->
+    <!-- ============================================================ -->
+    <header class="hero-header">
+      <div class="brand">
+        <img src="assets/images/auron logo.jpeg" alt="AURON" class="brand-logo">
+        <img src="assets/images/hacksprint.png" alt="HACKSPRINT" class="brand-logo-brand">
+        <img src="assets/images/Csi_logo_india.jpg" alt="CSI" class="brand-logo">
+      </div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#event">Event</a>
+        <a href="#perks">Perks</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-register" href="#register">Register</a>
+      </nav>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- LAPTOP HERO SHOWCASE — Main Event Highlight                   -->
+    <!-- ============================================================ -->
+    <div class="hacksprint-logo" id="event">
+      <div class="laptop-hero-stage">
+        <!-- Glowing aura spotlight -->
+        <div class="laptop-glow-bg"></div>
+
+        <!-- Top Sticker Badge -->
+        <div class="laptop-sticker-badge sticker-main-hacksprint">
+          AURON HACKSPRINT 2026 WORKSTATION ⚡
+        </div>
+
+        <!-- Main Laptop Image Showcase -->
+        <img src="assets/images/laptop.png" alt="HACKSPRINT 2026 — Think Fast. Build Well." class="laptop-img">
+
+        <!-- Bottom Tape Tagline Badge -->
+        <div class="laptop-sticker-badge sticker-tagline-tape">
+          THINK FAST. BUILD WELL.
+        </div>
+
+        <!-- Floating Tech Icons around Laptop -->
+        <img src="assets/images/drone.png" alt="Drone" class="laptop-tech-accent laptop-accent-drone">
+        <img src="assets/images/rocket.png" alt="Rocket" class="laptop-tech-accent laptop-accent-rocket">
+        <img src="assets/images/vr.png" alt="VR" class="laptop-tech-accent laptop-accent-vr">
+        <img src="assets/images/bulb.png" alt="Bulb" class="laptop-tech-accent laptop-accent-bulb">
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TIMER + REGISTER ROW                                          -->
+    <!-- ============================================================ -->
+    <div class="timer-register-row">
+      <div class="timer-panel">
+        <div class="timer-urgency">TIME LEFT TO REGISTER <span>— HURRY UP!</span></div>
+        <div class="timer" id="countdownTimer">
+          <div class="time-block">
+            <div class="num" id="days">00</div>
+            <div class="label">DAYS</div>
+          </div>
+          <span class="colon">:</span>
+          <div class="time-block">
+            <div class="num" id="hours">00</div>
+            <div class="label">HOURS</div>
+          </div>
+          <span class="colon">:</span>
+          <div class="time-block">
+            <div class="num" id="minutes">00</div>
+            <div class="label">MINUTES</div>
+          </div>
+          <span class="colon">:</span>
+          <div class="time-block">
+            <div class="num" id="seconds">00</div>
+            <div class="label">SECONDS</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <a href="https://forms.gle/HHmVQ9zk1NMbo6pX9" class="btn-clean btn-clean-purple">REGISTER NOW →</a>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- CREATIVE INFO BLOCK — scrapbook cards                         -->
+    <!-- ============================================================ -->
+    <div class="creative-info-block">
+
+      <!-- Hand-drawn X doodle -->
+      <div class="doodle doodle-cross">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <path d="M5 5 L35 35" stroke="#111" stroke-width="2.5" stroke-linecap="round" opacity="0.3" />
+          <path d="M35 5 L5 35" stroke="#111" stroke-width="2.5" stroke-linecap="round" opacity="0.3" />
+        </svg>
+      </div>
+
+      <div class="creative-info-card">
+        <span class="tape"></span>
+        <div class="big-icon">
+          <img src="assets/images/calender.png" alt="" width="40" height="40" style="filter:drop-shadow(1px 1px 0 rgba(0,0,0,0.2));">
+        </div>
+        <div class="big-number purple">29</div>
+        <div class="title">AUGUST</div>
+        <div class="desc">2026</div>
+        <div class="sub">mark your calendar</div>
+        <span class="doodle-scribble">✧</span>
+      </div>
+
+      <div class="creative-info-card">
+        <span class="tape"></span>
+        <div class="big-icon">
+          <img src="assets/images/team.png" alt="" width="40" height="40" style="filter:drop-shadow(1px 1px 0 rgba(0,0,0,0.2));">
+        </div>
+        <div class="big-number yellow">1–3</div>
+        <div class="title">MEMBERS</div>
+        <div class="desc">per team</div>
+        <div class="sub">collaborate & build</div>
+        <span class="doodle-scribble">✦</span>
+      </div>
+
+      <div class="creative-info-card">
+        <span class="tape"></span>
+        <div class="big-icon">
+          <img src="assets/images/rupee.png" alt="" width="40" height="40" style="filter:drop-shadow(1px 1px 0 rgba(0,0,0,0.2));">
+        </div>
+        <div class="big-number" style="color: #111;">₹300</div>
+        <div class="title">REGISTRATION</div>
+        <div class="desc">per team</div>
+        <div class="sub">affordable & inclusive</div>
+        <span class="doodle-scribble">⚡</span>
+      </div>
+
+      <div class="creative-info-card">
+        <span class="tape"></span>
+        <div class="big-icon">
+          <img src="assets/images/community.png" alt="" width="40" height="40" style="filter:drop-shadow(1px 1px 0 rgba(0,0,0,0.2));">
+        </div>
+        <div class="big-number purple">ANY</div>
+        <div class="title">DEPARTMENT</div>
+        <div class="desc">any year</div>
+        <div class="sub">SB JAIN STUDENTS ONLY</div>
+        <span class="doodle-scribble">⟡</span>
+      </div>
+
+      <!-- Hand-drawn star doodle -->
+      <div class="doodle doodle-star">
+        <svg width="45" height="45" viewBox="0 0 45 45" fill="none">
+          <path d="M22 2 L26 16 L40 16 L29 24 L33 38 L22 30 L11 38 L15 24 L4 16 L18 16Z" stroke="#F5B91E"
+            stroke-width="2" fill="none" opacity="0.35" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PRIZE POOL — distressed collage                                -->
+    <!-- ============================================================ -->
+    <div class="prize-pool-block">
+      <div class="label">
+        <img src="assets/images/trophy.png" alt="" width="30" height="30" style="vertical-align:middle; margin-right:4px;">
+        PRIZE POOL
+      </div>
+      <div class="amount">₹5000</div>
+      <div class="doodle-line"></div>
+      <div
+        style="font-family:'Patrick Hand', cursive; font-size:1.4rem; margin-top:0.2rem; color:#F5B91E; display:flex; justify-content:center; gap:1rem; align-items:center;">
+        <img src="assets/images/prize pool.png" alt="" width="28" height="28" style="filter:drop-shadow(1px 1px 0 rgba(0,0,0,0.3));">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F5B91E" stroke-width="1.8">
+          <path d="M8 1 L9.5 6 L15 6 L10.5 9.5 L12 15 L8 11.5 L4 15 L5.5 9.5 L1 6 L6.5 6Z" />
+        </svg>
+        <svg width="16" height="20" viewBox="0 0 16 20" fill="none" stroke="#F5B91E" stroke-width="1.8"
+          stroke-linecap="round">
+          <path d="M10 2 L6 10 L9 10 L5 18" />
+        </svg>
+      </div>
+
+      <!-- Hand-drawn zigzag doodle -->
+      <div class="doodle doodle-zigzag">
+        <svg width="80" height="20" viewBox="0 0 80 20" fill="none">
+          <path
+            d="M0 10 Q5 2, 10 10 Q15 18, 20 10 Q25 2, 30 10 Q35 18, 40 10 Q45 2, 50 10 Q55 18, 60 10 Q65 2, 70 10 Q75 18, 80 10"
+            stroke="#F5B91E" stroke-width="2" fill="none" opacity="0.4" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- WHAT'S IN IT FOR YOU — SCRAPBOOK SHOWCASE                   -->
+    <!-- ============================================================ -->
+    <div class="perks-section" id="perks">
+      <div class="perks-header-ribbon">WHAT'S IN IT FOR YOU?</div>
+      <div class="perks-sub-tag">✦ Every participant leaves with huge wins, skills, swags & memories! ✦</div>
+
+      <div class="perks-grid">
+        <div class="perk-card">
+          <div class="perk-tape"></div>
+          <div class="perk-icon-wrap">
+            <img src="assets/images/prize pool.png" alt="prize pool Doodle" class="perk-doodle-img">
+          </div>
+          <div class="perk-title">₹5,000 PRIZE POOL</div>
+          <div class="perk-desc">Cash rewards for the top winning teams!</div>
+        </div>
+
+        <div class="perk-card">
+          <div class="perk-tape"></div>
+          <div class="perk-icon-wrap">
+            <img src="assets/images/meals.png" alt="meals Doodle" class="perk-doodle-img">
+          </div>
+          <div class="perk-title">FREE MEALS & SNACKS</div>
+          <div class="perk-desc">Fuel up with delicious food, energy drinks & refreshments.</div>
+        </div>
+
+        <div class="perk-card">
+          <div class="perk-tape"></div>
+          <div class="perk-icon-wrap">
+            <img src="assets/images/vr.png" alt="VR Doodle" class="perk-doodle-img">
+          </div>
+          <div class="perk-title">SWAGS & GOODIES</div>
+          <div class="perk-desc">Custom stickers.</div>
+        </div>
+
+        <div class="perk-card">
+          <div class="perk-tape"></div>
+          <div class="perk-icon-wrap">
+            <img src="assets/images/bulb.png" alt="Bulb Doodle" class="perk-doodle-img">
+          </div>
+          <div class="perk-title">EXPERT MENTORSHIP</div>
+          <div class="perk-desc">1-on-1 guidance & technical review from industry mentors.</div>
+        </div>
+
+        <div class="perk-card">
+          <div class="perk-tape"></div>
+          <div class="perk-icon-wrap">
+            <img src="assets/images/certificated.png" alt="Book Doodle" class="perk-doodle-img">
+          </div>
+          <div class="perk-title">VERIFIED CERTIFICATES</div>
+          <div class="perk-desc">Official certificate of participation for every student.</div>
+        </div>
+
+        <div class="perk-card">
+          <div class="perk-tape"></div>
+          <div class="perk-icon-wrap">
+            <img src="assets/images/community.png" alt="Drone Doodle" class="perk-doodle-img">
+          </div>
+          <div class="perk-title">TECH COMMUNITY</div>
+          <div class="perk-desc">Connect, collaborate & network with top coders across SB Jain!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- INTERACTIVE STAMP APPROVED SEAL                             -->
+    <!-- ============================================================ -->
+    <div class="stamp-container">
+      <div class="stamp-seal-btn" onclick="stampSpot()">💥 CLICK TO STAMP YOUR SPOT! 💥</div>
+    </div>
+
+    <div class="stamped-badge" id="stampedBadge">
+      ✔ APPROVED & REGISTERED!
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- REGISTER SECTION — collage cutout                              -->
+    <!-- ============================================================ -->
+    <div class="register-section" id="register" style="position:relative;">
+      <img src="assets/images/rocket.png" alt="" class="reg-icon reg-rocket">
+      <img src="assets/images/bulb.png" alt="" class="reg-icon reg-bulb">
+      <img src="assets/images/vr.png" alt="" class="reg-icon reg-vr">
+      <img src="assets/images/drone.png" alt="" class="reg-icon reg-drone">
+      <img src="assets/images/book.png" alt="" class="reg-icon reg-book">
+      <div class="big-cta">READY TO SPRINT?</div>
+      <div class="sub-text">YOUR IDEA. YOUR TEAM. YOUR SHOT.</div>
+      <br>
+      <a href="https://forms.gle/HHmVQ9zk1NMbo6pX9" class="btn-clean register-btn"
+        style="font-size:1.6rem; padding:0.8rem 3.5rem;">REGISTER NOW →</a>
+      <div style="margin-top:1.8rem; display:flex; flex-direction:column; align-items:center; gap:0.8rem;">
+        <div class="qr-wrap"
+          style="background: #F3EFE6; border: 3px solid #111; padding:0.5rem 1.5rem; transform:rotate(2deg); box-shadow: 4px 4px 0 #6336B8;">
+          <img src="assets/images/qr.jpg" alt="QR" width="180" height="180" style="border: 2px solid #111;">
+        </div>
+        <div class="scan-qr-btn">SCAN QR →</div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER — torn paper                                            -->
+    <!-- ============================================================ -->
+    <footer class="contact-footer" id="contact">
+      <div>
+        <div class="queries">QUERIES?</div>
+        <div class="contact-person"><strong>Ayush Roy</strong><br>+91 7057533890</div>
+        <div class="contact-person" style="margin-top:0.6rem;"><strong>Narayani Wadhai</strong><br>+91 7709527135</div>
+      </div>
+      <div class="footer-brand">
+        <div class="name">AURON TECHNICAL FORUM</div>
+        <div class="event">HACKSPRINT 2026</div>
+        <div class="tag">✧ paper · ink · code ✧</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- COUNTDOWN SCRIPT                                              -->
+  <!-- ============================================================ -->
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>
