@@ -336,7 +336,6 @@
     /* Shared distressed paper-ink treatment for display type. */
     .site-nav a,
     .btn-clean,
-    .laptop-sticker-badge,
     .timer-register-row .label,
     .creative-info-card .desc,
     .creative-info-card .sub,
@@ -485,6 +484,7 @@
       box-shadow: 3px 3px 0 #F5B91E;
       background: #6336B8;
       color: #fff;
+      animation-play-state: paused;
     }
 
     .btn-clean-purple {
@@ -503,6 +503,44 @@
       box-shadow: 3px 3px 0 #F5B91E;
       background: #111;
       color: #F5B91E;
+      animation-play-state: paused;
+    }
+
+    @keyframes registerGlow {
+      0%, 70%, 100% {
+        box-shadow: 6px 6px 0 #6336B8, 0 0 0 0 rgba(245, 185, 30, 0);
+      }
+      85% {
+        box-shadow: 6px 6px 0 #6336B8, 0 0 18px 6px rgba(245, 185, 30, 0.8), 0 0 36px 12px rgba(99, 54, 184, 0.5);
+      }
+    }
+
+    @keyframes registerGlowPurple {
+      0%, 70%, 100% {
+        box-shadow: 6px 6px 0 #111, 0 0 0 0 rgba(245, 185, 30, 0);
+      }
+      85% {
+        box-shadow: 6px 6px 0 #111, 0 0 18px 6px rgba(245, 185, 30, 0.8), 0 0 36px 12px rgba(99, 54, 184, 0.5);
+      }
+    }
+
+    @keyframes registerGlowTimer {
+      0%, 70%, 100% {
+        box-shadow: 6px 6px 0 #111, 0 0 0 0 rgba(245, 185, 30, 0), 0 0 0 2px #F5B91E;
+      }
+      85% {
+        box-shadow: 6px 6px 0 #111, 0 0 18px 6px rgba(245, 185, 30, 0.8), 0 0 36px 12px rgba(99, 54, 184, 0.5), 0 0 0 2px #F5B91E;
+      }
+    }
+
+    .nav-register,
+    .btn-clean-purple,
+    .register-btn {
+      animation: registerGlow 3s ease-in-out infinite;
+    }
+
+    .timer-register-row .btn-clean-purple {
+      animation-name: registerGlowTimer;
     }
 
     /* ============================================================ */
@@ -759,7 +797,7 @@
     }
 
     .laptop-sticker-badge:hover {
-      transform: scale(1.1) rotate(0deg) !important;
+      transform: translateX(-50%) scale(1.1) rotate(0deg) !important;
     }
 
     .sticker-main-hacksprint {

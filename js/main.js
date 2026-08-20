@@ -57,18 +57,40 @@
       const rocketWrapper = document.getElementById('rocketWrapper');
       const logoReveal = document.getElementById('logoReveal');
 
-      // 1. Launch Rocket from bottom to top
+      // 1. Launch Rocket from bottom to top + sound
       setTimeout(() => {
         if (rocketWrapper) rocketWrapper.classList.add('launching');
+        if (typeof SoundEngine !== 'undefined') SoundEngine.rocketLaunch();
       }, 0);
 
-      // 2. Reveal Logo as rocket blasts into top dark sky
+      // 2. Reveal Logo as rocket blasts into top dark sky + swoosh
       setTimeout(() => {
         if (logoReveal) logoReveal.classList.add('active');
+        if (typeof SoundEngine !== 'undefined') SoundEngine.swoosh();
       }, 4000);
 
       // 3. Dismiss preloader overlay and reveal main website
       setTimeout(() => {
         dismissPreloader();
       }, 6000);
+    })();
+
+    // Click sounds on all buttons and links
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('.btn-clean, .nav-register, .stamp-seal-btn, .scan-qr-btn');
+      if (!target || typeof SoundEngine === 'undefined') return;
+      if (target.classList.contains('stamp-seal-btn')) {
+        SoundEngine.stamp();
+      } else {
+        SoundEngine.click();
+      }
+    });
+
+    // Success chime after stamp registers
+    (function hookStampSound() {
+      const orig = window.stampSpot;
+      window.stampSpot = function () {
+        if (typeof SoundEngine !== 'undefined') SoundEngine.gling();
+        if (orig) orig();
+      };
     })();
