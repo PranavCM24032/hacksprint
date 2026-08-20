@@ -60,7 +60,7 @@
       // 1. Launch Rocket from bottom to top + sound
       setTimeout(() => {
         if (rocketWrapper) rocketWrapper.classList.add('launching');
-        if (typeof SoundEngine !== 'undefined') SoundEngine.rocketLaunch();
+
       }, 0);
 
       // 2. Reveal Logo as rocket blasts into top dark sky + swoosh
