@@ -3,9 +3,24 @@
 // ============================================================
 const SoundEngine = (() => {
   let ctx;
+  let unlocked = false;
 
   function getCtx() {
-    if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+    if (!ctx) {
+      ctx = new (window.AudioContext || window.webkitAudioContext)();
+      // Unlock on first user interaction
+      if (ctx.state === 'suspended') {
+        const unlock = () => {
+          ctx.resume().then(() => { unlocked = true; });
+          document.removeEventListener('click', unlock);
+          document.removeEventListener('touchstart', unlock);
+        };
+        document.addEventListener('click', unlock);
+        document.addEventListener('touchstart', unlock);
+      } else {
+        unlocked = true;
+      }
+    }
     if (ctx.state === 'suspended') ctx.resume();
     return ctx;
   }
